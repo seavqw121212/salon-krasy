@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Авторська майстерня краси А. Kostyuchenko — Київ</title>
+<meta name="description" content="Авторська майстерня повного образу в Києві: фарбування, AirTouch, блонд, манікюр, брови, макіяж та зачіски. вул. Бориспільська, 26Ж.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script>
+tailwind.config={theme:{extend:{fontFamily:{serif:['"Cormorant Garamond"','Georgia','serif'],sans:['Manrope','system-ui','sans-serif']}}}}
+</script>
+<style>
+:root{--bg:#f6f1ea;--surface:#fffaf3;--text:#25211c;--muted:#6f675d;--gold:#a8802f;--gold2:#c9a35a;--line:rgba(37,33,28,.14);--onGold:#1b1710;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#141414;--surface:#1c1b1a;--text:#f1ebe0;--muted:#a79f92;--gold:#c9a35a;--gold2:#e4c98a;--line:rgba(241,235,224,.14);--onGold:#17130c}}
+:root[data-theme="dark"]{--bg:#141414;--surface:#1c1b1a;--text:#f1ebe0;--muted:#a79f92;--gold:#c9a35a;--gold2:#e4c98a;--line:rgba(241,235,224,.14);--onGold:#17130c}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+body{background:var(--bg);color:var(--text);font-family:Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
+.gold-text{background:linear-gradient(120deg,var(--gold),var(--gold2),var(--gold));-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn-gold{background:linear-gradient(120deg,var(--gold),var(--gold2));color:var(--onGold);transition:transform .3s,box-shadow .3s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 10px 30px -10px var(--gold)}
+.btn-line{border:1px solid var(--line);transition:border-color .3s,color .3s}
+.btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.card{background:var(--surface);border:1px solid var(--line);transition:transform .4s,border-color .4s}
+.card:hover{transform:translateY(-4px);border-color:var(--gold)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.in{opacity:1;transform:none}
+.hero-glow{background:radial-gradient(60% 50% at 75% 20%,color-mix(in srgb,var(--gold) 28%,transparent),transparent 70%),radial-gradient(50% 40% at 10% 90%,color-mix(in srgb,var(--gold) 14%,transparent),transparent 70%)}
+dialog{background:var(--surface);color:var(--text);border:1px solid var(--line);margin:auto;max-width:min(92vw,28rem);width:100%;padding:0;border-radius:1.25rem}
+dialog::backdrop{background:rgba(0,0,0,.6);backdrop-filter:blur(4px)}
+dialog[open]{animation:pop .35s ease}
+@keyframes pop{from{opacity:0;transform:translateY(16px) scale(.97)}}
+.fld{width:100%;background:transparent;border:1px solid var(--line);border-radius:.75rem;padding:.8rem 1rem;font-size:16px;color:var(--text);outline:none;transition:border-color .3s}
+.fld:focus{border-color:var(--gold)}
+.fld option{background:var(--surface);color:var(--text)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body class="font-sans">
+
+<!-- Header -->
+<header class="fixed left-0 right-0 z-50" style="top:env(safe-area-inset-top,0px);background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)">
+  <div class="max-w-6xl mx-auto px-5 h-16 flex items-center justify-between">
+    <a href="#top" class="flex items-center gap-3">
+      <span class="w-10 h-10 rounded-full grid place-items-center font-serif text-lg gold-text" style="border:1px solid var(--gold)">AK</span>
+      <span class="leading-tight"><span class="block font-serif text-lg gold-text">A. Kostyuchenko</span><span class="hidden sm:block text-[10px] tracking-[.2em] uppercase" style="color:var(--muted)">Майстерня краси</span></span>
+    </a>
+    <nav class="hidden md:flex items-center gap-8 text-sm" style="color:var(--muted)">
+      <a class="hover:text-[var(--gold)] transition" href="#poslugy">Послуги</a>
+      <a class="hover:text-[var(--gold)] transition" href="#komanda">Команда</a>
+      <a class="hover:text-[var(--gold)] transition" href="#vidhuky">Відгуки</a>
+      <a class="hover:text-[var(--gold)] transition" href="#kontakty">Контакти</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <button data-book class="btn-gold hidden sm:inline-block rounded-full px-5 py-2.5 text-sm font-medium">Записатися онлайн</button>
+      <button id="burger" aria-label="Меню" class="md:hidden w-11 h-11 grid place-items-center rounded-full btn-line">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 8h16M4 16h16"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mmenu" class="hidden md:hidden px-5 pb-5 pt-2 flex-col gap-1 text-base" style="border-top:1px solid var(--line)">
+    <a class="py-3" href="#poslugy">Послуги</a><a class="py-3" href="#komanda">Команда</a><a class="py-3" href="#vidhuky">Відгуки</a><a class="py-3" href="#kontakty">Контакти</a>
+    <button data-book class="btn-gold rounded-full px-5 py-3 font-medium mt-2">Записатися онлайн</button>
+  </div>
+</header>
+
+<main id="top">
+<!-- Hero -->
+<section class="hero-glow relative min-h-[100svh] flex items-center pt-24 pb-16">
+  <div class="max-w-6xl mx-auto px-5 w-full">
+    <p class="reveal text-xs tracking-[.3em] uppercase mb-6" style="color:var(--gold)">Київ · Червоний хутір</p>
+    <h1 class="reveal font-serif text-5xl sm:text-6xl lg:text-8xl leading-[1.02] max-w-4xl">Авторська майстерня <span class="gold-text italic">повного образу</span> в Києві</h1>
+    <p class="reveal mt-7 max-w-2xl text-base sm:text-lg leading-relaxed" style="color:var(--muted)">Експертне фарбування (AirTouch, блонд, робота з сивиною), догляд за волоссям, манікюр, брови, макіяж та зачіски — усе для вашого досконалого образу в одному місці.</p>
+    <div class="reveal mt-10 flex flex-col sm:flex-row gap-3 max-w-md sm:max-w-none">
+      <button data-book class="btn-gold rounded-full px-8 py-4 font-medium">Записатися на послугу</button>
+      <a href="#" data-ig target="_blank" rel="noopener" class="btn-line rounded-full px-8 py-4 font-medium text-center">Наш Instagram</a>
+    </div>
+    <div class="reveal mt-14 grid grid-cols-3 max-w-lg gap-4 text-center sm:text-left">
+      <div><div class="font-serif text-3xl gold-text">7/7</div><div class="text-xs mt-1" style="color:var(--muted)">днів на тиждень</div></div>
+      <div><div class="font-serif text-3xl gold-text">20:00</div><div class="text-xs mt-1" style="color:var(--muted)">працюємо до</div></div>
+      <div><div class="font-serif text-3xl gold-text">1</div><div class="text-xs mt-1" style="color:var(--muted)">місце — повний образ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs tracking-[.3em] uppercase mb-4" style="color:var(--gold)">Про нас</p>
+      <h2 class="font-serif text-4xl sm:text-5xl leading-tight">Краса без компромісів і без залежності від обставин</h2>
+    </div>
+    <div class="mt-12 grid gap-5 md:grid-cols-3">
+      <article class="reveal card rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-full grid place-items-center mb-5" style="border:1px solid var(--gold);color:var(--gold)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 3 5 14h6l-1 7 8-11h-6z"/></svg></div>
+        <h3 class="font-serif text-2xl mb-2">Працюємо за будь-яких умов</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--muted)">Світло, вода, опалення — ваш запис відбудеться, а якість залишиться бездоганною за будь-яких обставин.</p>
+      </article>
+      <article class="reveal card rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-full grid place-items-center mb-5" style="border:1px solid var(--gold);color:var(--gold)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="m12 3 2.6 5.6 6 .7-4.4 4.2 1.2 6L12 16.6 6.6 19.5l1.2-6L3.4 9.3l6-.7z"/></svg></div>
+        <h3 class="font-serif text-2xl mb-2">Експертні майстри</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--muted)">Команда фахівців із глибоким досвідом: складні фарбування, блонд, робота з сивиною та авторські рішення.</p>
+      </article>
+      <article class="reveal card rounded-2xl p-7">
+        <div class="w-12 h-12 rounded-full grid place-items-center mb-5" style="border:1px solid var(--gold);color:var(--gold)"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 3h6M10 3v5l-5 9a3 3 0 0 0 2.6 4.5h8.8A3 3 0 0 0 19 17l-5-9V3"/></svg></div>
+        <h3 class="font-serif text-2xl mb-2">Професійна косметика</h3>
+        <p class="text-sm leading-relaxed" style="color:var(--muted)">Працюємо з перевіреними професійними брендами, зокрема Smart4Derma, — для видимого результату та здоров’я волосся.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Services -->
+<section id="poslugy" class="py-20 sm:py-28" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <p class="text-xs tracking-[.3em] uppercase mb-4" style="color:var(--gold)">Послуги та прайс</p>
+      <h2 class="font-serif text-4xl sm:text-5xl">Усе для вашого образу</h2>
+    </div>
+    <div class="mt-12 grid gap-5 md:grid-cols-2">
+      <article class="reveal card rounded-2xl p-7 sm:p-9" style="background:var(--bg)">
+        <h3 class="font-serif text-3xl gold-text mb-6">Волосся</h3>
+        <ul class="divide-y text-sm sm:text-base" style="--tw-divide-opacity:1;border-color:var(--line)">
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Фарбування в один тон</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 800 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>AirTouch / блонд</span><span class="whitespace-nowrap" style="color:var(--gold)">від 4 500 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Фарбування сивини</span><span class="whitespace-nowrap" style="color:var(--gold)">від 2 200 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Стрижка</span><span class="whitespace-nowrap" style="color:var(--gold)">від 900 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Зачіски (укладання, вечірні)</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 200 ₴</span></li>
+        </ul>
+      </article>
+      <article class="reveal card rounded-2xl p-7 sm:p-9" style="background:var(--bg)">
+        <h3 class="font-serif text-3xl gold-text mb-6">Манікюр та педикюр</h3>
+        <ul class="divide-y text-sm sm:text-base">
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Манікюр + покриття гель-лаком</span><span class="whitespace-nowrap" style="color:var(--gold)">від 900 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Апаратний манікюр</span><span class="whitespace-nowrap" style="color:var(--gold)">від 600 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Педикюр + покриття</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 100 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Нарощування / корекція</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 400 ₴</span></li>
+        </ul>
+      </article>
+      <article class="reveal card rounded-2xl p-7 sm:p-9" style="background:var(--bg)">
+        <h3 class="font-serif text-3xl gold-text mb-6">Брови та макіяж</h3>
+        <ul class="divide-y text-sm sm:text-base">
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Корекція та фарбування брів</span><span class="whitespace-nowrap" style="color:var(--gold)">від 500 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Ламінування брів</span><span class="whitespace-nowrap" style="color:var(--gold)">від 800 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Денний макіяж</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 200 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Вечірній / весільний макіяж</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 800 ₴</span></li>
+        </ul>
+      </article>
+      <article class="reveal card rounded-2xl p-7 sm:p-9" style="background:var(--bg)">
+        <h3 class="font-serif text-3xl gold-text mb-6">Догляд та масаж</h3>
+        <ul class="divide-y text-sm sm:text-base">
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Догляд Smart4Derma для волосся</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 300 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Відновлення та кератин</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 800 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Масаж голови та шиї</span><span class="whitespace-nowrap" style="color:var(--gold)">від 700 ₴</span></li>
+          <li class="flex justify-between gap-4 py-3.5" style="border-color:var(--line)"><span>Релакс-масаж</span><span class="whitespace-nowrap" style="color:var(--gold)">від 1 000 ₴</span></li>
+        </ul>
+      </article>
+    </div>
+    <p class="reveal text-center text-xs mt-8" style="color:var(--muted)">Остаточна вартість залежить від довжини, густоти та складності роботи — майстер уточнить її на консультації.</p>
+  </div>
+</section>
+
+<!-- Team -->
+<section id="komanda" class="py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="grid lg:grid-cols-5 gap-10 items-center">
+      <div class="reveal lg:col-span-3">
+        <p class="text-xs tracking-[.3em] uppercase mb-4" style="color:var(--gold)">Команда</p>
+        <h2 class="font-serif text-4xl sm:text-5xl leading-tight mb-6">Авторський підхід, який відчувається в кожній деталі</h2>
+        <p class="leading-relaxed mb-4" style="color:var(--muted)">Майстерня народилася з ідеї створити місце, де образ продумують цілісно: від кольору та форми до фактури шкіри й нігтів. Засновниця Анастасія Костюченко вибудувала простір на власних стандартах якості, а кожен майстер команди працює за єдиною філософією — індивідуальність, турбота й бездоганний результат.</p>
+        <p class="leading-relaxed" style="color:var(--muted)">Ми не працюємо «за шаблоном»: кожен візит починається з розмови про ваш стиль, ритм життя та побажання.</p>
+      </div>
+      <div class="reveal lg:col-span-2 grid grid-cols-2 gap-4">
+        <div class="card rounded-2xl p-5 text-center"><div class="w-14 h-14 mx-auto rounded-full grid place-items-center font-serif text-xl gold-text mb-3" style="border:1px solid var(--gold)">AK</div><div class="font-serif text-lg">Засновниця</div><div class="text-xs mt-1" style="color:var(--muted)">Автор концепції</div></div>
+        <div class="card rounded-2xl p-5 text-center"><div class="w-14 h-14 mx-auto rounded-full grid place-items-center font-serif text-xl gold-text mb-3" style="border:1px solid var(--gold)">✦</div><div class="font-serif text-lg">Колористи</div><div class="text-xs mt-1" style="color:var(--muted)">AirTouch, блонд</div></div>
+        <div class="card rounded-2xl p-5 text-center"><div class="w-14 h-14 mx-auto rounded-full grid place-items-center font-serif text-xl gold-text mb-3" style="border:1px solid var(--gold)">✦</div><div class="font-serif text-lg">Нейл-майстри</div><div class="text-xs mt-1" style="color:var(--muted)">Манікюр, педикюр</div></div>
+        <div class="card rounded-2xl p-5 text-center"><div class="w-14 h-14 mx-auto rounded-full grid place-items-center font-serif text-xl gold-text mb-3" style="border:1px solid var(--gold)">✦</div><div class="font-serif text-lg">Візажисти</div><div class="text-xs mt-1" style="color:var(--muted)">Брови, макіяж</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Reviews -->
+<section id="vidhuky" class="py-20 sm:py-24 text-center" style="background:var(--surface);border-block:1px solid var(--line)">
+  <div class="reveal max-w-2xl mx-auto px-5">
+    <p class="text-xs tracking-[.3em] uppercase mb-4" style="color:var(--gold)">Відгуки</p>
+    <h2 class="font-serif text-4xl sm:text-5xl mb-5">Слово — нашим гостям</h2>
+    <p class="mb-8" style="color:var(--muted)">Справжні відгуки клієнтів — на картах Google та в нашому Instagram. Подивіться роботи майстрів і переконайтеся самі.</p>
+    <div class="flex flex-col sm:flex-row gap-3 justify-center">
+      <a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%D0%B2%D1%83%D0%BB.+%D0%91%D0%BE%D1%80%D0%B8%D1%81%D0%BF%D1%96%D0%BB%D1%8C%D1%81%D1%8C%D0%BA%D0%B0+26%D0%96+%D0%9A%D0%B8%D1%97%D0%B2" class="btn-gold rounded-full px-7 py-3.5 font-medium">Відгуки на Google</a>
+      <a href="#" data-ig target="_blank" rel="noopener" class="btn-line rounded-full px-7 py-3.5 font-medium">Роботи в Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- Contacts -->
+<section id="kontakty" class="py-20 sm:py-28">
+  <div class="max-w-6xl mx-auto px-5">
+    <div class="reveal rounded-3xl p-7 sm:p-12 lg:p-16 grid lg:grid-cols-2 gap-10" style="background:var(--surface);border:1px solid var(--line)">
+      <div>
+        <p class="text-xs tracking-[.3em] uppercase mb-4" style="color:var(--gold)">Контакти</p>
+        <h2 class="font-serif text-4xl sm:text-5xl leading-tight mb-8">Чекаємо на вас у нашій майстерні</h2>
+        <dl class="space-y-6">
+          <div><dt class="text-xs uppercase tracking-widest mb-1" style="color:var(--muted)">Адреса</dt><dd class="text-lg">Київ, вул. Бориспільська, 26Ж<br><span class="text-sm" style="color:var(--muted)">м. Червоний хутір</span></dd></div>
+          <div><dt class="text-xs uppercase tracking-widest mb-1" style="color:var(--muted)">Графік роботи</dt><dd class="text-lg">Пн–Нд: до 20:00</dd></div>
+        </dl>
+      </div>
+      <div class="flex flex-col justify-center gap-3">
+        <button data-book class="btn-gold rounded-2xl px-6 py-5 text-lg font-medium">Записатися на процедуру</button>
+        <a data-tel href="#" class="btn-line rounded-2xl px-6 py-4 text-center font-medium">Зателефонувати</a>
+        <div class="grid grid-cols-2 gap-3">
+          <a data-tg href="#" target="_blank" rel="noopener" class="btn-line rounded-2xl px-4 py-4 text-center font-medium">Telegram</a>
+          <a data-ig href="#" target="_blank" rel="noopener" class="btn-line rounded-2xl px-4 py-4 text-center font-medium">Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="pb-10 text-center text-xs px-5" style="color:var(--muted)">
+  <div class="font-serif text-xl gold-text mb-2">A. Kostyuchenko</div>
+  © <span id="yr"></span> Авторська майстерня краси А. Kostyuchenko · Київ, вул. Бориспільська, 26Ж
+</footer>
+
+<!-- Modal -->
+<dialog id="modal">
+  <form id="bookForm" class="p-6 sm:p-8" novalidate>
+    <div class="flex items-start justify-between mb-5">
+      <div><h3 class="font-serif text-3xl gold-text">Записатися на процедуру</h3><p class="text-sm mt-1" style="color:var(--muted)">Залиште дані — ми зв’яжемося з вами.</p></div>
+      <button type="button" id="closeM" aria-label="Закрити" class="w-10 h-10 rounded-full btn-line shrink-0">✕</button>
+    </div>
+    <div class="space-y-3">
+      <input class="fld" id="fName" placeholder="Ваше ім’я" autocomplete="name" required>
+      <input class="fld" id="fPhone" type="tel" inputmode="tel" placeholder="Телефон" autocomplete="tel" required>
+      <select class="fld" id="fSvc">
+        <option value="">Оберіть послугу</option>
+        <option>Фарбування волосся</option><option>AirTouch / блонд</option><option>Стрижка / зачіска</option>
+        <option>Манікюр / педикюр</option><option>Брови / макіяж</option><option>Догляд / масаж</option>
+      </select>
+      <input class="fld" id="fDate" placeholder="Бажана дата та час (необов’язково)">
+    </div>
+    <p id="fErr" class="text-sm mt-3 hidden" style="color:#d9695f">Будь ласка, вкажіть ім’я та телефон.</p>
+    <button class="btn-gold w-full rounded-full py-4 font-medium mt-5" type="submit">Надіслати заявку в Telegram</button>
+    <p class="text-xs text-center mt-3" style="color:var(--muted)">Натискаючи кнопку, ви погоджуєтесь на обробку контактних даних.</p>
+  </form>
+</dialog>
+
+<script>
+// ✎ Замініть на реальні контакти салону
+var PHONE="+380000000000", TELEGRAM="kostyuchenko_beauty", INSTAGRAM="https://www.instagram.com/";
+var $=function(s){return document.querySelectorAll(s)};
+$("[data-tel]").forEach(function(a){a.href="tel:"+PHONE});
+$("[data-tg]").forEach(function(a){a.href="https://t.me/"+TELEGRAM});
+$("[data-ig]").forEach(function(a){a.href=INSTAGRAM});
+document.getElementById("yr").textContent=new Date().getFullYear();
+
+var m=document.getElementById("modal");
+$("[data-book]").forEach(function(b){b.addEventListener("click",function(){document.getElementById("mmenu").classList.add("hidden");m.showModal()})});
+document.getElementById("closeM").onclick=function(){m.close()};
+m.addEventListener("click",function(e){if(e.target===m)m.close()});
+
+var menu=document.getElementById("mmenu");
+document.getElementById("burger").onclick=function(){menu.classList.toggle("hidden");menu.classList.toggle("flex")};
+menu.querySelectorAll("a").forEach(function(a){a.onclick=function(){menu.classList.add("hidden")}});
+
+document.getElementById("bookForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var n=fName.value.trim(),p=fPhone.value.trim();
+  if(!n||p.replace(/\D/g,"").length<9){fErr.classList.remove("hidden");return}
+  fErr.classList.add("hidden");
+  var t="Заявка на запис\nІм’я: "+n+"\nТелефон: "+p+"\nПослуга: "+(fSvc.value||"—")+"\nКоли: "+(fDate.value||"—");
+  window.open("https://t.me/"+TELEGRAM+"?text="+encodeURIComponent(t),"_blank");
+  m.close();
+});
+
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target)}})},{threshold:.12});
+$(".reveal").forEach(function(el,i){el.style.transitionDelay=(i%3)*80+"ms";io.observe(el)});
+</script>
+</body>
+</html>
